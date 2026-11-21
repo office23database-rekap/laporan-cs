@@ -1,0 +1,52 @@
+APLIKASI LAPORAN CS OUTLET 23 (PC & HP)
+=========================================
+
+Folder ini adalah "cangkang" aplikasi: logo, nama, dan halaman pembuka.
+Isi laporannya tetap web Apps Script yang sekarang, jadi setiap kali kamu
+memasang versi baru Kode.gs/Index, aplikasinya ikut terbarui. Tidak perlu
+mengunggah ulang folder ini.
+
+LANGKAH 1 - Isi link web app (sekali saja)
+------------------------------------------
+1. Buka index.html dengan Notepad.
+2. Cari baris:  var LINK_APP = 'TEMPEL_LINK_WEB_APP_DI_SINI';
+3. Ganti TEMPEL_LINK_WEB_APP_DI_SINI dengan link web app Apps Script
+   (yang berakhiran /exec), lalu simpan.
+
+Penting: saat memasang versi baru, tetap pakai
+"Kelola deployment -> Edit -> Versi baru". Jangan "Deployment baru",
+karena itu membuat link /exec yang berbeda dan aplikasinya tidak terbuka.
+
+LANGKAH 2 - Unggah ke GitHub Pages (gratis, sekali saja)
+--------------------------------------------------------
+1. Buat akun di https://github.com (gratis), lalu masuk.
+2. Klik tombol "+" di kanan atas -> "New repository".
+   Nama: laporan-cs, pilih Public, lalu klik "Create repository".
+3. Di halaman repository, klik tulisan "uploading an existing file",
+   lalu seret SEMUA file di folder ini ke sana. Klik "Commit changes".
+4. Buka Settings -> Pages. Di "Branch", pilih "main" dan folder "/ (root)",
+   lalu klik Save.
+5. Tunggu 1-2 menit. Link aplikasinya:
+   https://NAMA-AKUN-GITHUB.github.io/laporan-cs/
+
+Catatan: file di folder ini bisa dilihat orang yang punya link repository-nya.
+Isinya hanya logo dan link web app, tanpa data laporan. Data tetap aman di
+Google Sheet dan tetap butuh kode pribadi untuk masuk.
+
+LANGKAH 3 - Pasang di setiap perangkat
+--------------------------------------
+PC/laptop (Chrome atau Edge):
+  Buka link aplikasi -> klik ikon "Instal" di ujung kanan kolom alamat
+  (atau menu titik tiga -> "Instal Laporan CS"). Aplikasi muncul di desktop,
+  menu Start, dan bisa disematkan ke taskbar.
+
+HP Android (Chrome):
+  Buka link aplikasi -> menu titik tiga -> "Instal aplikasi"
+  (atau "Tambahkan ke layar utama").
+
+iPhone (Safari):
+  Buka link aplikasi -> tombol Bagikan -> "Tambahkan ke Layar Utama".
+  Coba dulu di satu iPhone. Kalau halamannya kosong atau harus login terus,
+  untuk iPhone pakai link web app biasa yang ditambahkan ke Layar Utama.
+
+Aplikasi tetap butuh internet, sama seperti web yang sekarang.
