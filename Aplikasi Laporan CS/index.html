@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Laporan CS · Outlet 23</title>
+<meta name="description" content="Laporan harian, case, screening, dan database tim CS Outlet 23.">
+<meta name="theme-color" content="#123F33">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Laporan CS">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<style>
+  html, body { margin: 0; height: 100%; background: #123F33; }
+  body { font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: #fff; }
+  #app { position: fixed; inset: 0; width: 100%; height: 100%; height: 100dvh; border: 0; display: block;
+         padding: env(safe-area-inset-top) 0 0; box-sizing: border-box; background: #EEF2F0; }
+  #muat { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+          gap: 14px; padding: 24px; text-align: center; background: #123F33; transition: opacity .25s; }
+  #muat.selesai { opacity: 0; pointer-events: none; }
+  #muat img { width: 112px; height: 112px; }
+  #muat p { margin: 0; color: #D7E4DE; }
+  #muat a { color: #fff; font-weight: 600; }
+  #muat .lambat { display: none; font-size: 14px; }
+  #muat.lama .lambat { display: block; }
+  @media (prefers-reduced-motion: reduce) { #muat { transition: none; } }
+</style>
+</head>
+<body>
+<div id="muat" role="status" aria-live="polite">
+  <img src="icon-192.png" alt="" width="112" height="112">
+  <p id="pesan">Membuka Laporan CS…</p>
+  <p class="lambat">Lama sekali? <a id="buka" href="#" target="_blank" rel="noopener">Buka di browser</a></p>
+</div>
+<iframe id="app" title="Laporan CS Outlet 23" allow="clipboard-read; clipboard-write"></iframe>
+<script>
+  /* ====== SATU-SATUNYA YANG PERLU DIISI: link web app Apps Script (yang berakhiran /exec) ====== */
+  var LINK_APP = 'https://script.google.com/macros/s/AKfycbzqv2mVMhYeYkmuiAzPMnl8uPRHGp2vx1uaN9juPZcuW2JY2mirNSBqu-v-l_2wLWsY/exec';
+  /* ========================================================================================= */
+
+  var muat = document.getElementById('muat'), app = document.getElementById('app');
+  if (!/^https:\/\/script\.google\.com\/.+\/exec/.test(LINK_APP)) {
+    document.getElementById('pesan').textContent = 'Link web app belum diisi. Buka file index.html, lalu tempel link Apps Script (berakhiran /exec) di baris LINK_APP.';
+  } else {
+    document.getElementById('buka').href = LINK_APP;
+    app.addEventListener('load', function () { muat.classList.add('selesai'); });
+    app.src = LINK_APP;
+    setTimeout(function () { if (!muat.classList.contains('selesai')) muat.classList.add('lama'); }, 15000);
+  }
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(function () {});
+</script>
+</body>
+</html>
