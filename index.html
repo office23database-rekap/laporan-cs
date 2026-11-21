@@ -50,6 +50,12 @@
     app.src = LINK_APP;
     setTimeout(function () { if (!muat.classList.contains('selesai')) muat.classList.add('lama'); }, 15000);
   }
+  // aplikasi di dalam bingkai menyapa ("halo") dan bisa meminta dimuat ulang (tombol ↻ atau ada versi baru)
+  window.addEventListener('message', function (e) {
+    var d = e.data; if (!d || typeof d !== 'object') return;
+    if (d.laporanCs === 'halo' && e.source) e.source.postMessage({ laporanCs: 'shell' }, '*');
+    if (d.laporanCs === 'muat-ulang') location.reload();
+  });
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(function () {});
 </script>
 </body>

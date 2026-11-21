@@ -1,6 +1,6 @@
 /* Service worker cangkang aplikasi Laporan CS: menyimpan halaman pembuka & ikon supaya aplikasi cepat terbuka.
    Isi laporan tetap selalu diambil langsung dari Google (butuh internet). */
-var CACHE = 'laporan-cs-v1';
+var CACHE = 'laporan-cs-v2';
 var FILE = ['./', 'index.html', 'manifest.webmanifest', 'icon-32.png', 'icon-180.png', 'icon-192.png', 'icon-512.png', 'icon-maskable-512.png'];
 
 self.addEventListener('install', function (e) {
